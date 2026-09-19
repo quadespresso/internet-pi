@@ -55,7 +55,6 @@
         "y": 0
       },
       "id": 8,
-      "maxDataPoints": 10000,
       "options": {
         "minVizHeight": 75,
         "minVizWidth": 75,
@@ -119,7 +118,6 @@
         "y": 0
       },
       "id": 10,
-      "maxDataPoints": 10000,
       "options": {
         "minVizHeight": 75,
         "minVizWidth": 75,
@@ -184,7 +182,6 @@
         "y": 0
       },
       "id": 12,
-      "maxDataPoints": 10000,
       "options": {
         "minVizHeight": 75,
         "minVizWidth": 75,
@@ -282,7 +279,6 @@
         "y": 9
       },
       "id": 6,
-      "maxDataPoints": 10000,
       "options": {
         "graph": {},
         "legend": {
