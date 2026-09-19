@@ -76,7 +76,7 @@
       "targets": [
         {
           "datasource": "prometheus",
-          "expr": "speedtest_download_bits_per_second{}",
+          "expr": "max_over_time(speedtest_download_bits_per_second[1h])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -140,7 +140,7 @@
       "targets": [
         {
           "datasource": "prometheus",
-          "expr": "speedtest_upload_bits_per_second{}",
+          "expr": "max_over_time(speedtest_upload_bits_per_second[1h])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -205,7 +205,7 @@
       "targets": [
         {
           "datasource": "prometheus",
-          "expr": "speedtest_ping_latency_milliseconds",
+          "expr": "max_over_time(speedtest_ping_latency_milliseconds[1h])",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -300,7 +300,7 @@
       "targets": [
         {
           "datasource": "prometheus",
-          "expr": "speedtest_download_bits_per_second{}",
+          "expr": "max_over_time(speedtest_download_bits_per_second[1h])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -309,7 +309,7 @@
         },
         {
           "datasource": "prometheus",
-          "expr": "speedtest_upload_bits_per_second{}",
+          "expr": "max_over_time(speedtest_upload_bits_per_second[1h])",
           "hide": false,
           "interval": "",
           "legendFormat": "Upload",
