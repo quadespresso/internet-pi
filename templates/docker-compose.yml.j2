@@ -106,6 +106,25 @@ services:
     networks:
       - back-tier
 
+{% if weather_enable %}
+  weather:
+    image: python:3-slim
+    restart: always
+    command: python3 /exporter.py
+    environment:
+      - WEATHER_LATITUDE={{ weather_latitude }}
+      - WEATHER_LONGITUDE={{ weather_longitude }}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./weather/exporter.py:/exporter.py:ro
+    expose:
+      - 9812
+    ports:
+      - 9812:9812
+    networks:
+      - back-tier
+{% endif %}
+
   nodeexp:
     image: prom/node-exporter:{{ monitoring_node_exporter_docker_image_tag | default('latest') }}
     restart: always

@@ -42,6 +42,14 @@ scrape_configs:
 {% endfor %}
 {% endif %}
 
+{% if weather_enable %}
+  - job_name: 'weather'
+    metrics_path: /metrics
+    scrape_interval: 2m
+    static_configs:
+      - targets: ['weather:9812']
+{% endif %}
+
 {% if starlink_enable %}
   - job_name: 'starlink'
     metrics_path: /metrics

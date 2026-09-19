@@ -1,0 +1,8 @@
+---
+- name: Copy weather dashboard config to grafana
+  ansible.builtin.copy:
+    src: files/weather.json
+    dest: "{{ config_dir }}/internet-monitoring/grafana/provisioning/dashboards/"
+    mode: 0644
+  become: false
+  notify: Restart internet-monitoring

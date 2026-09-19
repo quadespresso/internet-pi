@@ -61,3 +61,8 @@ airgradient_sensors:
 
 # Starlink configuration. (Also requires `monitoring_enable`)
 starlink_enable: false
+
+# Weather configuration. (Also requires `monitoring_enable`)
+weather_enable: false
+weather_latitude: 0.0
+weather_longitude: 0.0
