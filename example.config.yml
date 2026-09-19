@@ -40,6 +40,11 @@ prometheus_tsdb_retention_time: 90d
 # monitoring_speedtest_exporter_docker_image_tag: v3.5.4
 # monitoring_node_exporter_docker_image_tag: v1.9.1
 
+# Optional: store prometheus/grafana data at a bind-mount path (e.g. an
+# external drive) instead of a docker-managed volume on the OS disk.
+# monitoring_prometheus_data_dir: /mnt/storage/docker/internet-monitoring/prometheus
+# monitoring_grafana_data_dir: /mnt/storage/docker/internet-monitoring/grafana
+
 # Shelly Plug configuration. (Also requires `monitoring_enable`)
 shelly_plug_enable: false
 shelly_plug_hostname: my-shelly-plug-host-or-ip

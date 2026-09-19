@@ -31,7 +31,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./prometheus/:/etc/prometheus/
-      - prometheus_data:/prometheus
+      - {{ monitoring_prometheus_data_dir | default('prometheus_data') }}:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -58,7 +58,7 @@ services:
     restart: always
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - grafana_data:/var/lib/grafana
+      - {{ monitoring_grafana_data_dir | default('grafana_data') }}:/var/lib/grafana
       - ./grafana/provisioning/:/etc/grafana/provisioning/
     ports:
       - 3030:3000
