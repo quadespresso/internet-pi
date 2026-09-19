@@ -28,7 +28,7 @@
           },
           "custom": {},
           "mappings": [],
-          "max": 500,
+          "max": 5000,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -39,11 +39,11 @@
               },
               {
                 "color": "#EAB839",
-                "value": 150
+                "value": 2000
               },
               {
                 "color": "red",
-                "value": 300
+                "value": 3500
               }
             ]
           },
@@ -73,10 +73,9 @@
       "pluginVersion": "7.4.5",
       "targets": [
         {
-          "expr": "power",
+          "expr": "sum(shelly_em_active_power_watts)",
           "interval": "",
           "legendFormat": "Watts",
-          "queryType": "randomWalk",
           "refId": "A"
         }
       ],
@@ -92,7 +91,7 @@
           },
           "custom": {},
           "mappings": [],
-          "max": 500,
+          "max": 5000,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -103,11 +102,11 @@
               },
               {
                 "color": "#EAB839",
-                "value": 150
+                "value": 2000
               },
               {
                 "color": "red",
-                "value": 300
+                "value": 3500
               }
             ]
           },
@@ -137,10 +136,9 @@
       "pluginVersion": "7.4.5",
       "targets": [
         {
-          "expr": "power",
+          "expr": "sum(shelly_em_active_power_watts)",
           "interval": "",
           "legendFormat": "Watts",
-          "queryType": "randomWalk",
           "refId": "A"
         }
       ],
@@ -176,7 +174,7 @@
         "current": false,
         "max": false,
         "min": false,
-        "show": false,
+        "show": true,
         "total": false,
         "values": false
       },
@@ -197,10 +195,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "power",
+          "expr": "shelly_em_active_power_watts",
           "interval": "",
-          "legendFormat": "Watts",
-          "queryType": "randomWalk",
+          "legendFormat": "Channel {{channel}}",
           "refId": "A"
         }
       ],

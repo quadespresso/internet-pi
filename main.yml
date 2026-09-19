@@ -54,3 +54,7 @@
     - name: Set up Weather Monitoring.
       ansible.builtin.import_tasks: tasks/weather.yml
       when: weather_enable
+
+    - name: Set up Shelly Pro EM Monitoring.
+      ansible.builtin.import_tasks: tasks/shelly-em.yml
+      when: shelly_em_enable

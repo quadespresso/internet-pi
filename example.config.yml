@@ -66,3 +66,9 @@ starlink_enable: false
 weather_enable: false
 weather_latitude: 0.0
 weather_longitude: 0.0
+
+# Shelly Pro EM configuration. (Also requires `monitoring_enable`)
+# For a simple on/off Shelly Plug, use `shelly_plug_enable` above instead -
+# the Pro EM's energy-meter API is a different shape entirely.
+shelly_em_enable: false
+shelly_em_hostname: my-shelly-pro-em-host-or-ip

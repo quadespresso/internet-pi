@@ -50,6 +50,14 @@ scrape_configs:
       - targets: ['weather:9812']
 {% endif %}
 
+{% if shelly_em_enable %}
+  - job_name: 'shelly-em'
+    metrics_path: /metrics
+    scrape_interval: 15s
+    static_configs:
+      - targets: ['shelly-em:9926']
+{% endif %}
+
 {% if starlink_enable %}
   - job_name: 'starlink'
     metrics_path: /metrics

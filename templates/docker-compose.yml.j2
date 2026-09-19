@@ -125,6 +125,24 @@ services:
       - back-tier
 {% endif %}
 
+{% if shelly_em_enable %}
+  shelly-em:
+    image: python:3-slim
+    restart: always
+    command: python3 /exporter.py
+    environment:
+      - SHELLY_EM_HOSTNAME={{ shelly_em_hostname }}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./shelly-em/exporter.py:/exporter.py:ro
+    expose:
+      - 9926
+    ports:
+      - 9926:9926
+    networks:
+      - back-tier
+{% endif %}
+
   nodeexp:
     image: prom/node-exporter:{{ monitoring_node_exporter_docker_image_tag | default('latest') }}
     restart: always
