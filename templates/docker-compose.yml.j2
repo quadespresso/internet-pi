@@ -3,6 +3,7 @@
 volumes:
   prometheus_data: {}
   grafana_data: {}
+  shelly_em_state_data: {}
 
 networks:
   front-tier:
@@ -132,9 +133,13 @@ services:
     command: python3 /exporter.py
     environment:
       - SHELLY_EM_HOSTNAME={{ shelly_em_hostname }}
+      - SHELLY_EM_RATE_DOLLARS_PER_KWH={{ shelly_em_rate_dollars_per_kwh }}
+      - SHELLY_EM_FREE_HOUR_START={{ shelly_em_free_hour_start }}
+      - SHELLY_EM_FREE_HOUR_END={{ shelly_em_free_hour_end }}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./shelly-em/exporter.py:/exporter.py:ro
+      - {{ shelly_em_state_dir | default('shelly_em_state_data') }}:/state
     expose:
       - 9926
     ports:

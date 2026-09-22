@@ -72,3 +72,13 @@ weather_longitude: 0.0
 # the Pro EM's energy-meter API is a different shape entirely.
 shelly_em_enable: false
 shelly_em_hostname: my-shelly-pro-em-host-or-ip
+# Electricity cost tracking (both channels combined). Simple time-of-use
+# model: a free window (24-hour clock, local time) and a flat rate
+# otherwise. Set both free hours to -1 to disable the free window (flat
+# rate all day).
+shelly_em_rate_dollars_per_kwh: 0.0
+shelly_em_free_hour_start: -1
+shelly_em_free_hour_end: -1
+# Optional: bind-mount the cost-tracking state file at a path (e.g. an
+# external drive) instead of a docker-managed volume on the OS disk.
+# shelly_em_state_dir: /mnt/storage/docker/internet-monitoring/shelly-em-state
