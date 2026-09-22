@@ -41,6 +41,8 @@
       dest: prometheus/prometheus.yml
     - src: prometheus-pinghosts.yaml.j2
       dest: prometheus/pinghosts.yaml
+    - src: prometheus-transpacific-hosts.yaml.j2
+      dest: prometheus/transpacific-hosts.yaml
   notify: Restart internet-monitoring
   become: false
 

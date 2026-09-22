@@ -1062,6 +1062,84 @@
       ],
       "title": "HTTP Request Duration - Transfer",
       "type": "timeseries"
+    },
+    {
+      "datasource": "prometheus",
+      "description": "ICMP round-trip time to specific single-region (non-anycast) servers in North America, to spot undersea-cable/transcontinental issues that a local or CDN/anycast target wouldn't show.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMin": 0,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 81
+      },
+      "id": 22,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": "prometheus",
+          "expr": "probe_icmp_duration_seconds{phase=\"rtt\", job=\"transpacific\"}",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "{{humanname}}",
+          "refId": "A"
+        }
+      ],
+      "title": "Trans-Pacific Latency",
+      "type": "timeseries"
     }
   ],
   "refresh": "",

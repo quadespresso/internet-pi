@@ -24,6 +24,13 @@ monitoring_ping_hosts:  # [URL];[HUMAN_READABLE_NAME]
   - http://www.google.com/;google.com
   - https://github.com/;github.com
   - https://www.apple.com/;apple.com
+# Long-haul latency to specific single-region (non-anycast) servers, useful
+# for spotting undersea-cable/transcontinental issues that a local/anycast
+# target wouldn't show. [HOSTNAME];[HUMAN_READABLE_NAME]
+monitoring_transpacific_hosts:
+  - speedtest.fremont.linode.com;Fremont, CA (US West)
+  - speedtest.newark.linode.com;Newark, NJ (US East)
+  - tor-ca-ping.vultr.com;Toronto, ON (Canada)
 
 # Prometheus configuration.
 prometheus_monitor_prometheus: false

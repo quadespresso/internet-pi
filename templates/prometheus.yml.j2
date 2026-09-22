@@ -87,6 +87,28 @@ scrape_configs:
       - target_label: __address__
         replacement: ping:9115  # The blackbox exporter's real hostname:port.
 
+  - job_name: 'transpacific'
+    metrics_path: /probe
+    scrape_interval: {{ monitoring_ping_interval }}
+    params:
+      module: [icmp]
+    file_sd_configs:
+      - files:
+          - transpacific-hosts.yaml
+    relabel_configs:
+      - source_labels: [__address__]
+        regex: '(.*);(.*)'  # first is the hostname, thus unique for instance
+        target_label: instance
+        replacement: $1
+      - source_labels: [__address__]
+        regex: '(.*);(.*)'  # second is humanname to use in charts
+        target_label: humanname
+        replacement: $2
+      - source_labels: [instance]
+        target_label: __param_target
+      - target_label: __address__
+        replacement: ping:9115  # The blackbox exporter's real hostname:port.
+
   - job_name: 'node'
     static_configs:
       - targets: {{ prometheus_node_exporter_targets | to_yaml }}
