@@ -40,7 +40,8 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "celsius",
+          "decimals": 1
         },
         "overrides": []
       },
@@ -92,7 +93,8 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "celsius",
+          "decimals": 1
         },
         "overrides": []
       },
@@ -323,7 +325,8 @@
             }
           },
           "mappings": [],
-          "unit": "celsius"
+          "unit": "celsius",
+          "decimals": 1
         },
         "overrides": []
       },
